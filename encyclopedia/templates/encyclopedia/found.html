@@ -1,0 +1,28 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %} Wiki {% endblock %}
+
+
+{% block body %}
+<div class="page">
+    <center>
+    <h1>Results</h1>
+    
+            {% if entry is not None %}
+            <h5>
+                Here are the results found on the Wiki:
+            </h5>
+
+            <ul>
+                {% for ent in entry %}
+                    <u>
+                        <li><a href="{% url 'loadentry' ent %}"class="link">{{ ent }}</a></li> 
+                    </u>
+                {% empty %}
+            </ul>
+                {% endfor %}
+           {% endif %}        
+    </center>   
+</div>
+ 
+{% endblock %}

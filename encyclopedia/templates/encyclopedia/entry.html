@@ -1,0 +1,21 @@
+{% extends 'encyclopedia/layout.html' %}
+
+
+{% block title %}
+    Wiki
+{% endblock %}
+
+
+{% block body %}
+<div class="page">
+    <center>
+        {{ entry|safe }}
+        <u>
+            <a href="/edit/{{title}}" class="edit">Edit page</a>
+        </u>
+           {% csrf_token %}
+    </center>
+</div>
+
+{% endblock %}
+    

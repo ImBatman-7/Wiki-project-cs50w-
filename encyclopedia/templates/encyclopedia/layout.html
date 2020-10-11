@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'encyclopedia/styles1.css' %}">
+    </head>
+    <body>
+       <div class="boss">
+        <div class="left_space">
+                <div class="top">
+                    <p class="wiki">Wiki</p>
+                    </div>
+                        <div class="middle">
+                            <form action="{% url 'search' %}">
+                              <div>
+                                <input type="text" name="q" placeholder="Find in Encyclopedia" class="input"> 
+                            </div>
+                                <div >
+                                <input type="submit" value="Search" class="button">
+                                </div>  
+                            </form>
+                        </div>
+                
+                        
+                 <div class="bottom">
+                   <u>
+                       <li class="link"><a href="{% url 'main' %}" class="link">Home</a></li>
+                       <p></p>
+                       <li class="link"><a href="{% url 'create' %}" class="link">Create New Page</a></li>
+                       <p></p>
+                       <li class="link"><a href="{% url 'random' %}" class="link">Random Page</a></li>  
+                   </u> 
+                     
+                </div>
+            </div>           
+       </div> 
+       <div class="content">
+        {% block body %}
+        {% endblock %}
+       </div>
+
+    </body>
+</html>      
+
+
+
